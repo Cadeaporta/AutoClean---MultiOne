@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "AutoClean MultiOne",
+  "description": "Limpa cache, recarrega a página e faz login automático na MultiOne.",
+  "version": "1.0",
+
+  "permissions": [
+    "storage",
+    "tabs",
+    "alarms",
+    "browsingData"
+  ],
+
+  "host_permissions": [
+    "https://beta.multione.digital/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://beta.multione.digital/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
